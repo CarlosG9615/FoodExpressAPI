@@ -83,10 +83,7 @@ public class SecurityConfig {
                 // Esto actúa antes del controlador
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/**","/h2-console/**").permitAll() // pública para login/register
-                        //.requestMatchers(HttpMethod.GET,"/api/productos").permitAll()
-                                .requestMatchers(HttpMethod.GET,"/api/**").permitAll() // si todos los get son público
-//                        .requestMatchers(HttpMethod.POST,"/api/productos").authenticated()
-//                        .requestMatchers(HttpMethod.PUT,"/api/productos/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET,"/api/**").permitAll() // si todos los get son público
                         .anyRequest().authenticated()
                 )
                 .authenticationProvider(authenticationProvider())
